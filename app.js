@@ -13,6 +13,7 @@ const mongoURI = 'mongodb://localhost:27017/http_client';
 mongoose.connect(mongoURI, {useNewUrlParser: true});
 
 var myLogger = (req, res, next) => {
+    if(!!req.body && req.body != '')
     console.log(req.body);
     next();
 }
